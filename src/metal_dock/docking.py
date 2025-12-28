@@ -65,7 +65,6 @@ class Docking:
         self._run_autogrid(autogrid_logfile, gpf_path)
         self._run_autodock(autodock_logfile, dpf_path)
         if not self.par.score_only:
-            print(self.par.score_only)
             self._write_conformations(dlg_path, dock_dir_path)
             # self._adding_and_optimizing_hydrogens()
             self._clean_dummy_atoms()
