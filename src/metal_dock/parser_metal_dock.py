@@ -155,6 +155,10 @@ class ParserBase:
         if self.sa_dock:
             self.dock_algorithm = [self.temp_reduction_factor, self.number_of_runs, self.max_cycles]
 
+        if self.score_only and (self.ga_dock or self.sa_dock):
+            self.logger.info('ga_dock and/or sa_dock must be set to False when performing score_only')
+            sys.exit()
+
         if not self.ga_dock and not self.sa_dock and not self.score_only:
             self.logger.info('At least ga_dock or sa_dock or score_only must be set to True for MetalDock to run properly')
             sys.exit()
